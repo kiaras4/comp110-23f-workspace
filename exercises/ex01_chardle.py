@@ -49,7 +49,7 @@ if count_char == 1:
     print(str(count_char) + " instance of " + character + " found in " + searched_word)
 elif count_char > 1:
     # uses "instances" for frequencies not equal to one
-     print(str(count_char) + " instances of " + character + " found in " + searched_word)
+    print(str(count_char) + " instances of " + character + " found in " + searched_word)
 else:
     # for when there are no matches
     print("No instances of " + character + " found in " + searched_word)
