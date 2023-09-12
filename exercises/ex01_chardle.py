@@ -1,6 +1,6 @@
-"""EX01 - Chardle - A cute step toward Wordle"""
+"""EX01 - Chardle - A cute step toward Wordle."""
 
-__author__ = "73067532"
+__author__ = "730675328"
 
 searched_word = str(input("Enter a 5-character word: "))
 
