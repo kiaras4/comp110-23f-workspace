@@ -14,7 +14,7 @@ GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
 # Initializes the main index
-letter_idx: int = 0
+idx: int = 0
 
 # Initializes the string for the colored boxes
 boxes = ""
@@ -24,17 +24,18 @@ while len(guess) != len(secret_word):
     guess = str(input(f"That was not {len(secret_word)} letters! Try again: "))
 
 # Loops through each index
-while letter_idx < len(secret_word):
+while idx < len(secret_word):
     # Tests if the letter is correct and in the correct location
-    if str(secret_word[letter_idx]) == str(guess[letter_idx]):
+    if str(secret_word[idx]) == str(guess[idx]):
         boxes += str(GREEN_BOX)         
     else:
-        # Initializes the index used for testing matching letters without changing main index
+        """ Initializes the index used for testing matching 
+        letters without changing main index """
         separate_idx: int = 0
         """ Loops through the letters, testing if the letter 
         appears in the secret word and assigns appropriate box """
         while separate_idx < len(secret_word):
-            if str(guess[letter_idx]) == str(secret_word[separate_idx]):
+            if str(guess[idx]) == str(secret_word[separate_idx]):
                 separate_idx = len(secret_word)
                 boxes += str(YELLOW_BOX)
             elif separate_idx == (len(secret_word) - 1):
@@ -44,7 +45,7 @@ while letter_idx < len(secret_word):
             else:
                 separate_idx += 1
     # Approaches exit condition
-    letter_idx += 1
+    idx += 1
 
 print(boxes)
 
