@@ -1,13 +1,14 @@
-""" EX03 - Wordle. """
+"""EX03 - Wordle."""
 
 __author__ = "730675328"
 
+
 def contains_char(secret: str, char1: str) -> bool:
-    """tests if the letter(char1) is anywhere in the secret word"""
+    """Tests if the letter(char1) is anywhere in the secret word."""
     assert len(char1) == 1
     # initiates index variable
     idx: int = 0
-    
+
     # loops through each index of secret, testing for the char1 letter
     while idx < len(secret):
         if str(secret[idx]) == str(char1):
@@ -17,8 +18,9 @@ def contains_char(secret: str, char1: str) -> bool:
         else:
             return False
 
-def emojified(guess: str, secret: str)-> str:
-    """concatenates the green, yellow, and white boxes according to the letter"""
+
+def emojified(guess: str, secret: str) -> str:
+    """Concatenates the green, yellow, and white boxes according to the letter."""
     assert len(guess) == len(secret)
 
     # Establishes the boxes used
@@ -49,7 +51,7 @@ def emojified(guess: str, secret: str)-> str:
 
 
 def input_guess(length: int) -> str:
-    """allows plater to input a guess and ensures it is the correct length"""
+    """Allows player to input a guess and ensures it is the correct length."""
     guess: str = input(f"Enter a {length} character secret: ")
 
     # loops until player inputs a guess of the correct length
@@ -58,10 +60,10 @@ def input_guess(length: int) -> str:
         
     return guess
 
-def main()-> None:
-    """The entrypoint of the program and main game loop."""
 
-    # initiates the variables, print statement, and the player's guess
+def main() -> None:
+    """The entrypoint of the program and main game loop."""
+    # Initiates the variables, print statement, and the player's guess
     secret: str = "codes"
     guess_count: int = 1
     length: int = len(secret)
@@ -77,11 +79,12 @@ def main()-> None:
 
     # tests if all allowed guesses are wrong
     if guess_count >= length and secret != guess:
-        print( f"X/6 - Sorry, try again tomorrow!")
+        print("X/6 - Sorry, try again tomorrow!")
     # this point = a correct guess within the allowed turns
     else:
         print(emojified(guess, secret))
         print(f"You won in {guess_count}/6 turns!")
+
 
 if __name__ == "__main__":
     main()
