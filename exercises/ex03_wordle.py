@@ -11,12 +11,14 @@ def contains_char(secret: str, char1: str) -> bool:
 
     # loops through each index of secret, testing for the char1 letter
     while idx < len(secret):
-        if str(secret[idx]) == str(char1):
+        if secret[idx] == char1:
             return True
-        elif str(secret[idx]) != str(char1) and idx < len(secret) - 1:
+        elif secret[idx] != char1 and idx < len(secret) - 1:
             idx += 1
         else:
             return False
+    # For when char1 is not found
+    return False
 
 
 def emojified(guess: str, secret: str) -> str:
@@ -52,11 +54,11 @@ def emojified(guess: str, secret: str) -> str:
 
 def input_guess(length: int) -> str:
     """Allows player to input a guess and ensures it is the correct length."""
-    guess: str = input(f"Enter a {length} character secret: ")
+    guess: str = input(f"Enter a {length} character word: ")
 
     # loops until player inputs a guess of the correct length
     while len(guess) != length:
-        guess: str = input(f"That wasn't {length} chars! Try again: ")
+        guess = input(f"That wasn't {length} chars! Try again: ")
         
     return guess
 
@@ -64,7 +66,7 @@ def input_guess(length: int) -> str:
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     # Initiates the variables, print statement, and the player's guess
-    secret: str = "codes"
+    secret: str = "taylor"
     guess_count: int = 1
     length: int = len(secret)
     print(f"=== Turn {guess_count}/6 ===")
@@ -75,7 +77,7 @@ def main() -> None:
         print(emojified(guess, secret))
         guess_count += 1
         print(f"=== Turn {guess_count}/6 ===")
-        guess: str = input_guess(length)
+        guess = input_guess(length)
 
     # tests if all allowed guesses are wrong
     if guess_count >= length and secret != guess:
