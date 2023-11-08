@@ -48,8 +48,8 @@ def alphabetizer(words: list[str]) -> dict[str, list[str]]:
         item.lower()
     letter_dict: dict[str, list[str]] = {}
     for item in words:
-        letter = item[0]
-        if letter not in letter_dict and item[0] == letter:
+        letter = item.lower()[0]
+        if letter not in letter_dict and item.lower()[0] == letter:
             letter_dict[letter] = []
             letter_dict[letter].append(item)
         else:
@@ -60,8 +60,13 @@ def alphabetizer(words: list[str]) -> dict[str, list[str]]:
 def update_attendance(attendance_log: dict[str, list[str]], day: str, name: str) -> dict[str, list[str]]:
     """Updating attendance log."""
     if day in attendance_log:
-        attendance_log[day].append(name)
+        if name not in attendance_log[day]:
+            attendance_log[day].append(name)
     else:
         attendance_log[day] = []
         attendance_log[day].append(name)
     return attendance_log
+
+
+test_alphabetizer: list[str] = ["Python", "sugar", "Turtle", "party", "table"]
+print(alphabetizer(test_alphabetizer))
