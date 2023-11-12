@@ -2,11 +2,11 @@
 
 __author__ = "730675328"
 
-from dictionary import invert
-from dictionary import favorite_color
-from dictionary import count
-from dictionary import alphabetizer
-from dictionary import update_attendance
+from exercises.ex06.dictionary import invert
+from exercises.ex06.dictionary import favorite_color
+from exercises.ex06.dictionary import count
+from exercises.ex06.dictionary import alphabetizer
+from exercises.ex06.dictionary import update_attendance
 
 
 def test_invert_empty() -> None:
@@ -42,7 +42,7 @@ def test_favorite_color_use() -> None:
 def test_favorite_color_use2() -> None:
     """Testing ties in favorite colors."""
     test_favorite_color: dict[str, str] = {"Gayle": "blue", "Mark": "blue", "David": "yellow", "Marc": "yellow"}
-    assert favorite_color(test_favorite_color) == "yellow"
+    assert favorite_color(test_favorite_color) == "blue"
 
 
 def test_count_empty() -> None:
@@ -78,7 +78,7 @@ def test_alphabetizer_use() -> None:
 def test_alphabetizer_use2() -> None:
     """Tests second use case."""
     test_alphabetizer: list[str] = ["Python", "sugar", "Turtle", "party", "table"]
-    assert alphabetizer(test_alphabetizer) == {'P': ['Python'], 'p': ['party'], 's': ['sugar'], 'T': ['Turtle'], 't': ['table']}
+    assert alphabetizer(test_alphabetizer) == {'p': ['Python', 'party'], 's': ['sugar'], 't': ['Turtle', 'table']}
 
 
 def test_update_attendance_empty() -> None:
