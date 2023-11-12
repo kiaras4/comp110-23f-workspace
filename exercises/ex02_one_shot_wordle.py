@@ -3,7 +3,7 @@
 __author__ = "730675328"
 
 # Initializes the string used in the testing 
-secret_word: str = "python"
+secret_word: str = "gymrat"
 
 # Initializes the user inputted guess
 guess = str(input(f"What is your {len(secret_word)}-letter guess? "))
